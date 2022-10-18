@@ -4,7 +4,7 @@ PLUGIN.name = "Alcohol"
 PLUGIN.author = "Winkarst#6698"
 PLUGIN.description = "Adds alcohol system."
 PLUGIN.schema = "Any"
-PLUGIN.version = "V1.0"
+PLUGIN.version = "V2.0"
 PLUGIN.license = [[
     MIT License
 
@@ -31,3 +31,4 @@ PLUGIN.license = [[
 
 ix.util.Include("cl_hooks.lua")
 ix.util.Include("sv_hooks.lua")
+ix.util.Include("sv_meta.lua")
