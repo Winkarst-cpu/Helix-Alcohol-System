@@ -1,9 +1,9 @@
 local PLUGIN = PLUGIN or {}
 
 function PLUGIN:RenderScreenspaceEffects()
-	local drunk = LocalPlayer():GetLocalVar("drunk", 0)
+	local drunkEffect = LocalPlayer():GetLocalVar("drunkEffect", 0)
 
-	if (drunk > 0) then
-		DrawMotionBlur(0.075, drunk, 0.025)
+	if (drunkEffect > 0) then
+		DrawMotionBlur(0.075, drunkEffect, 0.025)
 	end
 end
