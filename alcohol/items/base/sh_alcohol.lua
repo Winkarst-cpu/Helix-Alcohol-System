@@ -13,24 +13,24 @@ ITEM.functions.Use = {
 	OnRun = function(item)
 		local client = item.player
 		local character = client:GetCharacter()
-		local uniqueID = "ixAlcohol" .. client:UniqueID()
+		local effectID = "ixAlcohol" .. client:UniqueID()
 
-		if SERVER then
-			client:SetLocalVar("drunk", client:GetLocalVar("drunk", 0) + item.effectAmount)
-
-			timer.Create(uniqueID, item.effectTime, 1, function()
-				if (IsValid(client)) then
-					client:SetLocalVar("drunk", math.max(client:GetLocalVar("drunk", 0) - item.effectAmount, 0))
-				end
-			end)
-		end
-
-		if istable( item.returnItems ) then
-			for _, v in ipairs( item.returnItems ) do
-				character:GetInventory():Add( v )
+		if istable(item.returnItems) then
+			for _, v in ipairs(item.returnItems) do
+				character:GetInventory():Add(v)
 			end
 		else
-			character:GetInventory():Add( item.returnItems )
+			character:GetInventory():Add(item.returnItems)
+		end
+
+		if SERVER then
+			client:SetLocalVar("drunkEffect", client:GetLocalVar("drunkEffect", 0) + item.effectAmount)
+
+			timer.Create(effectID, item.effectTime, 1, function()
+				if (IsValid(client)) then
+					client:SetLocalVar("drunkEffect", math.max(client:GetLocalVar("drunkEffect", 0) - item.effectAmount, 0))
+				end
+			end)
 		end
 	end,
 }
